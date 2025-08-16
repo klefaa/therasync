@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: therasync-clients
+  datasource:
+    url: jdbc:postgresql://localhost:5432/therasync_clients
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  hikari:
+    connection-init-sql: SET NAMES 'UTF8'
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          therasync-auth:
+            url: http://localhost:8080
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8090
